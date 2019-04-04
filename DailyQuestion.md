@@ -51,3 +51,28 @@ I) App 向 AMS 发送一个启动 Servic巳的消息。
 
 参考文章 [Android事件分发机制详解：史上最全面、最易懂](https://www.jianshu.com/p/38015afcdb58)
 
+### 5.每日一题：volley 的请求成功和失败的 HTTP 响应码有哪些？为什么说 volley 适用于频繁请求而每次请求数据量不会很大？
+
+1、volley 除了 200-299 的响应认为是成功的响应，回调到 `onResponse()` 方法，成功拿不到具体的响应码；其余都处理成失败，回调到 `onErrorResponse()` 方法，失败可以拿到具体的响应码，所以自定义响应码不适用 volley。主要源码： **`com.android.volley.toolbox.BasicNetwork`**
+
+2、volley 使用于频繁请求而每次请求数据量不会很大，是因为 volley 里面使用的 byte[]，请求频繁且大数量会占用过多的内存，导致 OOM 等问题。
+
+volley 和 OKHttp 对比
+
+![](http://innovator-blogimage.test.upcdn.net/2019/04/%E5%AF%B9%E6%AF%94.jpg)
+
+### 6.每日一题：Parcelable 和 Serializable 的作用、效率、区别及选择？
+
+- 作用：都是用来序列化的，就是将一个对象转换成可存储或可传输的状态。序列化后的对象可以在网络上进行传输，也可以存储到本地。
+
+- 效率：Parcelable 比 Serializable 更好更快。Parcelable 是为了程序内不同组件传递和程序之间的传递数据设计的，所以在读写数据的时候，Parcelable 是在内存中直接进行读写,而 Serializable 是通过使用 IO 流的形式将数据读写入在硬盘上，所以 Parcelable 的效率比较高。同时 Parcelable 内存开销也比 Serializable 小。
+
+- 区别：Serializable 使用方便，实现一下 Serializable 接口，定义一个 SerializableID 就可以了。Parcelable 是 Android 特有的序列化方式，实现起来麻烦一点，而且也要保证写入数据的顺序必须和读出数据的顺序一致。
+
+- 选择：Serializable 的作用是为了保存对象的属性到本地文件、数据库、网络流、rmi 以方便数据传输，当然这种传输可以是程序内的也可以是两个程序间的
+
+    Android 的 Parcelable的设计初衷是因为 Serializable 效率过慢，为了在程序内不同组件间以及不同 Android 程序间 (AIDL) 高效的传输数据而设计，这些数据仅在内存中存在，Parcelable 是通过 IBinder 通信的消息的载体。
+
+    Parcelable 的性能比 Serializable 好，在内存开销方面较小，所以在内存间数据传输时推荐使用 Parcelable，如 activity 间传输数据，而 Serializable 可将数据持久化方便保存，所以在需要保存或网络传输数据时选择 Serializable，因为android 不同版本 Parcelable 可能不同，所以不推荐使用 Parcelable 进行数据持久化。
+
+
