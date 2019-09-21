@@ -81,7 +81,7 @@ Java 中的锁是一种线程同步机制，即在同一时刻，只能有一个
 
 当某个线程调用该对象的 synchronized 方法或者访问 synchronized 代码块时，这个线程便获得了该对象的锁，其他线程暂时无法访问这个方法，这时其他线程就处于阻塞的状态。只有等待这个线程执行完方法或者代码块，这个线程才会释放该对象的锁，其他线程才能执行这个方法或者代码块。
 
-参考另一篇文章。[]()
+参考另一篇文章：[Java 锁的解析](https://github.com/innovatorCL/Android-Day-Day-Study/blob/9bd887b0fd6fcd3de2373070ad716e0c4b5b07e1/Java%20%E9%94%81%E7%9A%84%E8%A7%A3%E6%9E%90.md)
 
 ### 8.每日一题：自定义Handler 时如何有效地避免内存泄漏问题？
 
@@ -157,5 +157,66 @@ Activity、Service的context生命周期和Activity、Service一样；
 
 [Android Context完全解析，你所不知道的Context的各种细节](https://blog.csdn.net/guolin_blog/article/details/47028975)
 
+### 11.每日一题：多渠道打包怎么实现？
+
+- 1.使用 Gradle 的 ProductFlaver 属性
+
+- 2.使用美团的 Walle 打包
+
+### 12.每日一题：RecyclerView 的多类型视图怎么封装？
+
+- 1.超级吊炸天的 RecyclerView 的多类型封装库，可以学习一下大佬的抽象思想。
+
+[Android 复杂的列表视图新写法 MultiType](https://gank.io/post/5823bcf6421aa90e799ec2ad)
+
+### 13.每日一题：Glide 的加载流程
+
+- 1.参考郭霖的 Glide 系列解析教程
+
+    [Android图片加载框架最全解析（一），Glide的基本用法](https://blog.csdn.net/guolin_blog/article/details/53759439)
+
+### 14.每日一题：Window 的使用
+
+### 15.每日一题：MVP 如何防止内存泄漏
+
+- 1.Observable 在 Activity onDestroy() 的时候进行 dispose()
+
+- 2.P 层在 Activity OnDestroy() 的时候把 Activity 的引用置为 null
+
+### 16.每日一题：Lru 算法怎么实现
+
+### 17.每日一题：滴滴插件化的原理
+
+- 1.参考我的博客 [滴滴插件化解析（一）](https://www.jianshu.com/p/ee8880271a0c)
+
+### 18.每日一题：AppBundle 的使用
+
+### 19.每日一题：OKHttp 的原理
+
+### 20.每日一题：各种单例的实现以及优劣
+
+### 21.每日一题：ArrayList 和 LinkedList 的区别
+
+### 22.每日一题：Http 协议怎么实现缓存
+
+### 23.每日一题：Https 和 Http 的区别，SSL/TLS 过程
+
+- 1.参考 [面试复习——Android工程师之网络基础](https://blog.csdn.net/qq_30379689/article/details/72876667)
+
+### 24.每日一题：有哪些检测内存泄漏的方式
+
+- 1.Android Studio 的 Profile
+
+- 2.LeakCanary
+
+- 3.MAT
+
+### 25.每日一题：使用 WebView 怎么解决运营商劫持
+
+### 26.每日一题：Rxjava 原理
+
+- 1.参考我的博客 [Rxjava 2.1 订阅流程源码解析](https://www.jianshu.com/p/22197f5a9318)
+
+### 27.每日一题：ARoute 的原理
 
 
